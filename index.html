@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07101f">
+  <title>Best Buy Open-Box Finder | Bay Parkway</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="shell masthead">
+    <div>
+      <p class="eyebrow">Store 599 · Brooklyn</p>
+      <h1>Best Buy Open-Box Finder</h1>
+      <p class="muted">Surface returned and marked-down electronics near Bay Parkway.</p>
+    </div>
+    <span id="apiState" class="pill">Checking service…</span>
+  </header>
+
+  <main class="shell">
+    <section class="search-panel">
+      <form id="searchForm">
+        <label for="query">Product, SKU, or Best Buy URL</label>
+        <div class="search-row">
+          <input id="query" name="query" value="Apple" autocomplete="off" required
+            placeholder="Apple MacBook, iPad Pro, SKU, or URL">
+          <button id="searchButton" type="submit">Search inventory</button>
+        </div>
+        <div class="filters">
+          <label>ZIP code<input id="zip" value="11214" inputmode="numeric" maxlength="5"></label>
+          <label>Minimum discount<input id="discount" type="number" value="10" min="0" max="90"><span>%</span></label>
+          <label>Results<select id="limit"><option>12</option><option selected>24</option><option>48</option></select></label>
+          <label class="check"><input id="openBoxOnly" type="checkbox" checked> Open-box only</label>
+        </div>
+      </form>
+      <p class="fineprint">Public listing data only. Back-room units and item age are shown only when Best Buy exposes them online.</p>
+    </section>
+
+    <section class="summary" aria-live="polite">
+      <div><strong id="resultCount">0</strong><span>matches</span></div>
+      <div><strong id="bestSavings">—</strong><span>best savings</span></div>
+      <div><strong id="updatedAt">Not searched</strong><span>last checked</span></div>
+    </section>
+
+    <div id="notice" class="notice" hidden></div>
+    <section id="results" class="results" aria-live="polite"></section>
+    <section id="empty" class="empty">
+      <div class="radar">⌁</div>
+      <h2>Ready to hunt</h2>
+      <p>Search Apple products, computers, TVs, audio, or paste a Best Buy product URL.</p>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="product-card">
+      <div class="image-wrap"><img class="product-image" alt=""></div>
+      <div class="product-body">
+        <div class="product-meta"><span class="condition pill"></span><span class="sku muted"></span></div>
+        <h2 class="product-title"></h2>
+        <div class="price-row"><strong class="sale-price"></strong><s class="regular-price muted"></s></div>
+        <div class="saving"></div>
+        <p class="availability"></p>
+        <a class="product-link" target="_blank" rel="noopener noreferrer">View at Best Buy</a>
+      </div>
+    </article>
+  </template>
+  <script src="/app.js" defer></script>
+</body>
+</html>
