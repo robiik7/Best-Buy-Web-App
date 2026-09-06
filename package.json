@@ -1,0 +1,11 @@
+{
+  "name": "best-buy-web-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "test": "node --test",
+    "check": "node --check app.js && node --check api/search.js"
+  },
+  "engines": { "node": ">=20" }
+}
